@@ -42,9 +42,9 @@ export async function register({ name, email, password }: RegisterData) {
 }
 
 export async function login({ email, password }: LoginData) {
-  const userRepository = getCustomRepository(UserRepository);
-
   try {
+    const userRepository = getCustomRepository(UserRepository);
+
     const user = await userRepository.findOne({ email });
 
     if (!user) {
@@ -75,5 +75,17 @@ export async function login({ email, password }: LoginData) {
     return result;
   } catch (error) {
     console.log("Error in register user", error);
+  }
+}
+
+export async function getUserById(id: number) {
+  try {
+    const userRepository = getCustomRepository(UserRepository);
+
+    const user = await userRepository.findOne(id);
+
+    return user;
+  } catch (error) {
+    console.log("Error in server", error);
   }
 }

@@ -7,6 +7,7 @@ const router = Router();
 
 router.post("/register", userController.register);
 router.post("/login", userController.login);
+router.get("/me", ensureAuthenticated, userController.getUserByToken);
 
 router.post("/operations", ensureAuthenticated, operationController.create);
 router.get("/operations", ensureAuthenticated, operationController.getAll);

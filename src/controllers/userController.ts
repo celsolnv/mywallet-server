@@ -40,3 +40,18 @@ export async function login(req: Request, res: Response) {
     res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
+
+export async function getUserByToken(req: Request, res: Response) {
+  const userId = req.userId;
+
+  try {
+    const userInfo = await userServices.getUserById(userId);
+
+    delete userInfo.password;
+
+    res.send(userInfo);
+  } catch (error) {
+    console.log("Error in server", error);
+    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+  }
+}
