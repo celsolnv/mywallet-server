@@ -1,0 +1,14 @@
+{
+  "compilerOptions": { 
+    // "target": "ES2015",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["./src/@types"]
+  },
+  "exclude": [
+    "node_modules",
+    "tests"
+  ]
+}
