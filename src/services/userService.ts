@@ -33,7 +33,7 @@ export async function register({ name, email, password }: RegisterData) {
       name,
       password: passwordHash,
     });
-    await userRepository.insert(user);
+    await userRepository.save(user);
 
     return user;
   } catch (error) {
