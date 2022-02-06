@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev ./src/server.ts",
+    "dev": "NODE_ENV=development ts-node-dev ./src/server.ts -p tsconfig.json",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "build": "NODE_ENV=production npx tsc --outDir dist && npx typeorm migration:run",
     "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/server.js",
