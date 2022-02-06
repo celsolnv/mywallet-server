@@ -25,3 +25,15 @@ export async function create({ type, description, price, userId }: CreateData) {
     console.log(error);
   }
 }
+
+export async function getAll(userId: number) {
+  try {
+    const operationRepository = getCustomRepository(OperationRepository);
+
+    const operations = await operationRepository.find({ userId });
+
+    return operations;
+  } catch (error) {
+    console.log(error);
+  }
+}

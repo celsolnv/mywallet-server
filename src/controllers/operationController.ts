@@ -32,3 +32,14 @@ export async function create(req: Request, res: Response) {
     res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
+export async function getAll(req: Request, res: Response) {
+  const userId = req.userId;
+
+  try {
+    const operations = await operationService.getAll(userId);
+    res.send(operations);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+  }
+}

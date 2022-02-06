@@ -9,4 +9,5 @@ router.post("/register", userController.register);
 router.post("/login", userController.login);
 
 router.post("/operations", ensureAuthenticated, operationController.create);
+router.get("/operations", ensureAuthenticated, operationController.getAll);
 export { router };
