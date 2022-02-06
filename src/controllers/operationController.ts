@@ -14,7 +14,9 @@ export async function create(req: Request, res: Response) {
       price,
     });
     if (validate.error) {
-      return res.status(httpStatus.BAD_REQUEST).send(validate.error.message);
+      return res
+        .status(httpStatus.BAD_REQUEST)
+        .send({ message: validate.error.message });
     }
 
     const operation = await operationService.create({

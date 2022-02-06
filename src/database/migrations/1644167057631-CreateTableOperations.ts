@@ -28,6 +28,11 @@ export class CreateTableOperations1644167057631 implements MigrationInterface {
             name: "userId",
             type: "bigint",
           },
+          {
+            name: "create_at",
+            type: "timestamp",
+            default: "now()",
+          },
         ],
         foreignKeys: [
           {
